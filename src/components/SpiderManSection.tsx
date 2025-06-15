@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import SpiderWebAnimation from './SpiderWebAnimation';
+import SectionSpiders from './SectionSpiders';
 
 const SpiderManSection = () => {
   return (
@@ -9,8 +10,9 @@ const SpiderManSection = () => {
       className="min-h-screen flex items-center justify-center relative bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1604200188031-4a7f76d4aced?q=80&w=1974&auto=format&fit=crop')" }}
     >
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/70 z-0" />
       <SpiderWebAnimation />
+      <SectionSpiders />
       <div className="relative z-10 text-center text-white p-4 animate-fade-in">
         <h2 className="text-6xl md:text-8xl font-black uppercase mb-4 font-orbitron">
           <span className="text-spidey-red">Spider-</span><span className="text-spidey-blue">Verse</span>
