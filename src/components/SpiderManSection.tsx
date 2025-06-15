@@ -7,7 +7,7 @@ const SpiderManSection = () => {
   return (
     <section 
       className="min-h-screen flex items-center justify-center relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1431576901776-e539bd916ba2?q=80&w=1974&auto=format&fit=crop')" }}
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1604200188031-4a7f76d4aced?q=80&w=1974&auto=format&fit=crop')" }}
     >
       <div className="absolute inset-0 bg-black/70" />
       <SpiderWebAnimation />

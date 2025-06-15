@@ -43,21 +43,22 @@ const Spider = () => {
       }}
     >
       <div className="relative animate-bounce" style={{ animationDuration: '4s' }}>
-        {/* Spider body */}
-        <div 
-          className="w-3 h-4 bg-yellow-400 rounded-full relative"
-          style={{ filter: 'drop-shadow(0 0 5px #facc15)'}}
-        >
-          {/* Spider legs */}
-          <div className="absolute -left-2 top-1 w-3 h-px bg-yellow-700 transform -rotate-45"></div>
-          <div className="absolute -right-2 top-1 w-3 h-px bg-yellow-700 transform rotate-45"></div>
-          <div className="absolute -left-2 top-2 w-3 h-px bg-yellow-700 transform -rotate-12"></div>
-          <div className="absolute -right-2 top-2 w-3 h-px bg-yellow-700 transform rotate-12"></div>
-          <div className="absolute -left-2 bottom-1 w-3 h-px bg-yellow-700 transform rotate-45"></div>
-          <div className="absolute -right-2 bottom-1 w-3 h-px bg-yellow-700 transform -rotate-45"></div>
-          <div className="absolute -left-2 bottom-2 w-3 h-px bg-yellow-700 transform rotate-12"></div>
-          <div className="absolute -right-2 bottom-2 w-3 h-px bg-yellow-700 transform -rotate-12"></div>
-        </div>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 3px #fde047)' }}>
+            {/* Body */}
+            <ellipse cx="16" cy="16" rx="4" ry="6" fill="#facc15"/>
+            {/* Head */}
+            <circle cx="16" cy="9" r="2.5" fill="#facc15"/>
+            {/* Legs - left */}
+            <path d="M14 11 C 8 9, 6 4, 2 2" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M14 13 C 8 12, 4 10, 0 8" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M14 18 C 8 19, 4 21, 0 24" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M14 20 C 8 22, 6 27, 2 30" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            {/* Legs - right */}
+            <path d="M18 11 C 24 9, 26 4, 30 2" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M18 13 C 24 12, 28 10, 32 8" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M18 18 C 24 19, 28 21, 32 24" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M18 20 C 24 22, 26 27, 30 30" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round"/>
+        </svg>
       </div>
     </div>
   );
