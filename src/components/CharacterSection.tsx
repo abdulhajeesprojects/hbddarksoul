@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 
 const CharacterSection = () => {
@@ -44,7 +43,7 @@ const CharacterSection = () => {
               <Card key={character.name} className="relative group bg-card/50 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:box-glow">
                 <CardContent className="p-6">
                   {/* Symbol */}
-                  <div className="text-6xl text-primary text-center mb-4 animate-pulse-glow">
+                  <div className="text-6xl text-primary text-center mb-4">
                     {character.symbol}
                   </div>
                   

@@ -19,9 +19,9 @@ const Index = () => {
         {/* Divider with themed icons */}
         <div className="flex justify-center items-center py-8">
           <div className="flex space-x-4 text-primary">
-            <Swords className="h-8 w-8 animate-pulse-glow" />
-            <Shield className="h-8 w-8 animate-pulse-glow" />
-            <Flame className="h-8 w-8 animate-pulse-glow" />
+            <Swords className="h-8 w-8" />
+            <Shield className="h-8 w-8" />
+            <Flame className="h-8 w-8" />
           </div>
         </div>
 
@@ -63,7 +63,7 @@ const Index = () => {
                 </p>
                 <div className="flex justify-center items-center space-x-6 text-primary">
                   <Crown className="h-12 w-12 animate-float" />
-                  <Flame className="h-12 w-12 animate-pulse-glow" />
+                  <Flame className="h-12 w-12" />
                   <Skull className="h-12 w-12 animate-float" />
                 </div>
               </div>

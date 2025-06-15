@@ -39,12 +39,12 @@ const HeroSection = () => {
       {/* Gaming Elements */}
       <div className="flex items-center justify-center space-x-8 text-primary mb-8">
         <div className="flex flex-col items-center">
-          <Flame className="h-10 w-10 animate-pulse-glow mb-2" />
+          <Flame className="h-10 w-10 mb-2" />
           <span className="text-sm font-semibold">KINDLE FLAME</span>
         </div>
         <div className="text-4xl font-black">⚔️</div>
         <div className="flex flex-col items-center">
-          <Shield className="h-10 w-10 animate-pulse-glow mb-2" />
+          <Shield className="h-10 w-10 mb-2" />
           <span className="text-sm font-semibold">CLAIM SOULS</span>
         </div>
       </div>

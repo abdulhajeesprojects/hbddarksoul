@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 const RuneSection = () => {
@@ -36,7 +35,7 @@ const RuneSection = () => {
                 onClick={() => setActiveCovenant(activeCovenant === index ? null : index)}
               >
                 <div className="bg-card/50 border border-primary/30 rounded-lg p-6 text-center hover:border-primary hover:box-glow transition-all duration-300">
-                  <div className="text-5xl text-primary mb-2 animate-pulse-glow group-hover:animate-bounce">
+                  <div className="text-5xl text-primary mb-2 group-hover:animate-bounce">
                     {covenant.symbol}
                   </div>
                   <p className="text-xs font-semibold text-muted-foreground">
@@ -51,7 +50,7 @@ const RuneSection = () => {
           {activeCovenant !== null && (
             <div className="max-w-2xl mx-auto text-center animate-fade-in">
               <div className="bg-card/70 border border-primary/50 rounded-lg p-8 box-glow">
-                <div className="text-6xl text-primary mb-4 animate-pulse-glow">
+                <div className="text-6xl text-primary mb-4">
                   {covenants[activeCovenant].symbol}
                 </div>
                 <h3 className="text-2xl font-black mb-2 text-glow">
