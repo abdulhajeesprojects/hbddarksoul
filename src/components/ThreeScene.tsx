@@ -1,6 +1,6 @@
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Icosahedron } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react';
 
 const ThreeScene = () => {
@@ -10,14 +10,15 @@ const ThreeScene = () => {
         <Suspense fallback={null}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffff" />
-          <Icosahedron args={[1.5, 1]}>
+          <mesh>
+            <icosahedronGeometry args={[1.5, 1]} />
             <meshStandardMaterial
               color="#00ffff"
               wireframe
               emissive="#00ffff"
               emissiveIntensity={0.5}
             />
-          </Icosahedron>
+          </mesh>
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
         </Suspense>
       </Canvas>
