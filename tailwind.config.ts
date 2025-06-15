@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -101,8 +102,8 @@ export default {
           '100%': { transform: 'translate(0)' },
         },
         'pulse-glow': {
-          '0%, 100%': { opacity: '0.7', boxShadow: '0 0 10px hsl(var(--primary) / 0.5)' },
-          '50%': { opacity: '1', boxShadow: '0 0 25px hsl(var(--primary) / 0.8)' },
+          '0%, 100%': { opacity: '0.8', boxShadow: '0 0 8px hsl(var(--primary) / 0.4)' },
+          '50%': { opacity: '1', boxShadow: '0 0 20px hsl(var(--primary) / 0.6)' },
         }
 			},
 			animation: {
