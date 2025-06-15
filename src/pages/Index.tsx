@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Swords, Shield, Flame, Crown, Skull } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
@@ -77,8 +78,12 @@ const Index = () => {
         </section>
 
         {/* Themed Game Sections */}
-        <SpiderManSection />
-        <GodOfWarSection />
+        <div id="spiderman-section">
+          <SpiderManSection />
+        </div>
+        <div id="godofwar-section">
+          <GodOfWarSection />
+        </div>
         <Gta5Section />
       </main>
 
