@@ -36,6 +36,18 @@ const RotatingAxe = () => {
   );
 };
 
+const RuneStone = ({ position }: { position: [number, number, number] }) => {
+  return (
+    <Box args={[0.5, 1.5, 0.3]} position={position}>
+      <meshStandardMaterial
+        color="#666666"
+        emissive="#00ffff"
+        emissiveIntensity={0.1}
+      />
+    </Box>
+  );
+};
+
 const RuneStones = () => {
   const stonesRef = useRef<THREE.Group>(null);
   
@@ -45,7 +57,7 @@ const RuneStones = () => {
     }
   });
 
-  const positions = [
+  const positions: [number, number, number][] = [
     [3, 0, 0],
     [-3, 0, 0],
     [0, 0, 3],
@@ -57,13 +69,7 @@ const RuneStones = () => {
   return (
     <group ref={stonesRef}>
       {positions.map((position, index) => (
-        <Box key={index} args={[0.5, 1.5, 0.3]} position={position as [number, number, number]}>
-          <meshStandardMaterial
-            color="#666666"
-            emissive="#00ffff"
-            emissiveIntensity={0.1}
-          />
-        </Box>
+        <RuneStone key={index} position={position} />
       ))}
     </group>
   );
