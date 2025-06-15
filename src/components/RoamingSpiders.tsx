@@ -1,9 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 
 const SPIDER_COUNT = 2;
 
 const Spider = () => {
-  // Combine position and rotation into a single state object
   const [spiderState, setSpiderState] = useState({ 
     top: Math.random() * 100, 
     left: Math.random() > 0.5 ? -10 : 110,
@@ -25,14 +25,12 @@ const Spider = () => {
         return {
           top: nextPos.top,
           left: nextPos.left,
-          rotation: angle + 90, // Adjust for spider's upward orientation
+          rotation: angle + 90,
         };
       });
     };
 
-    const interval = setInterval(moveSpider, Math.random() * 4000 + 5000); // Move every 5-9 seconds
-    
-    // Move onto the screen shortly after appearing
+    const interval = setInterval(moveSpider, Math.random() * 4000 + 5000);
     const initialMoveTimeout = setTimeout(moveSpider, 100);
 
     return () => {
@@ -53,11 +51,9 @@ const Spider = () => {
     >
       <div className="relative animate-bounce" style={{ animationDuration: '4s' }}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 3px #fde047)' }}>
-            {/* Body & Head */}
             <ellipse cx="16" cy="16" rx="4" ry="6" fill="#facc15"/>
             <circle cx="16" cy="9" r="2.5" fill="#facc15"/>
             
-            {/* Animated Legs - left */}
             <path d="M14 11 C 8 9, 6 4, 2 2" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round">
                 <animate attributeName="d" dur="0.4s" repeatCount="indefinite" values="M14 11 C 8 9, 6 4, 2 2; M14 11 C 9 10, 7 5, 3 3; M14 11 C 8 9, 6 4, 2 2" />
             </path>
@@ -71,7 +67,6 @@ const Spider = () => {
                  <animate attributeName="d" dur="0.4s" begin="0.2s" repeatCount="indefinite" values="M14 20 C 8 22, 6 27, 2 30; M14 20 C 9 23, 7 28, 3 31; M14 20 C 8 22, 6 27, 2 30" />
             </path>
             
-            {/* Animated Legs - right */}
             <path d="M18 11 C 24 9, 26 4, 30 2" stroke="#fbbf24" strokeWidth="1.2" strokeLinecap="round">
                 <animate attributeName="d" dur="0.4s" begin="0.2s" repeatCount="indefinite" values="M18 11 C 24 9, 26 4, 30 2; M18 11 C 23 10, 25 5, 29 3; M18 11 C 24 9, 26 4, 30 2" />
             </path>
@@ -94,34 +89,46 @@ const RoamingSpiders = () => {
   const [showSpiders, setShowSpiders] = useState(false);
 
   useEffect(() => {
-    const spiderManSection = document.getElementById('spiderman-section');
-    const godOfWarSection = document.getElementById('godofwar-section');
+    // Add a delay to ensure DOM is fully loaded
+    const setupObserver = () => {
+      const spiderManSection = document.getElementById('spiderman-section');
+      const godOfWarSection = document.getElementById('godofwar-section');
 
-    if (!spiderManSection || !godOfWarSection) return;
+      console.log('Setting up spider observer', { spiderManSection, godOfWarSection });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target.id === 'spiderman-section' && entry.isIntersecting) {
-            setShowSpiders(true);
-          }
-          if (entry.target.id === 'godofwar-section' && entry.isIntersecting) {
-            setShowSpiders(false);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+      if (!spiderManSection || !godOfWarSection) {
+        console.log('Sections not found, retrying in 1 second');
+        setTimeout(setupObserver, 1000);
+        return;
+      }
 
-    observer.observe(spiderManSection);
-    observer.observe(godOfWarSection);
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            console.log('Spider intersection:', entry.target.id, entry.isIntersecting);
+            if (entry.target.id === 'spiderman-section' && entry.isIntersecting) {
+              setShowSpiders(true);
+            }
+            if (entry.target.id === 'godofwar-section' && entry.isIntersecting) {
+              setShowSpiders(false);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
 
-    return () => {
-      if (spiderManSection) observer.unobserve(spiderManSection);
-      if (godOfWarSection) observer.unobserve(godOfWarSection);
+      observer.observe(spiderManSection);
+      observer.observe(godOfWarSection);
+
+      return () => {
+        console.log('Cleaning up spider observer');
+        observer.disconnect();
+      };
     };
-  }, []);
 
+    const cleanup = setupObserver();
+    return cleanup;
+  }, []);
 
   return (
     <>
