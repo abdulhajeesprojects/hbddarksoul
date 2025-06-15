@@ -13,17 +13,19 @@ const Spider = () => {
 
   useEffect(() => {
     const moveSpider = () => {
-      const nextPos = {
-        top: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
-        left: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
-      };
+      setPosition(currentPos => {
+        const nextPos = {
+          top: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
+          left: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
+        };
 
-      const deltaY = nextPos.top - position.top;
-      const deltaX = nextPos.left - position.left;
-      const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-      
-      setRotation(angle + 90);
-      setPosition(nextPos);
+        const deltaY = nextPos.top - currentPos.top;
+        const deltaX = nextPos.left - currentPos.left;
+        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        
+        setRotation(angle + 90);
+        return nextPos;
+      });
     };
 
     const interval = setInterval(moveSpider, Math.random() * 3000 + 4000); // Move every 4-7 seconds
@@ -34,7 +36,7 @@ const Spider = () => {
       clearInterval(interval);
       clearTimeout(initialMoveTimeout);
     };
-  }, [position]);
+  }, []);
 
   return (
     <div
