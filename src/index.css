@@ -68,6 +68,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Orbitron', sans-serif;
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--destructive) / 0.1) 0%, transparent 50%);
   }
 
   /* Text selection color */
@@ -79,11 +82,60 @@
 
 @layer components {
   .text-glow {
-    text-shadow: 0 0 5px hsl(var(--primary) / 0.8), 0 0 10px hsl(var(--primary) / 0.6), 0 0 20px hsl(var(--primary) / 0.4);
+    text-shadow: 
+      0 0 5px hsl(var(--primary) / 0.8), 
+      0 0 10px hsl(var(--primary) / 0.6), 
+      0 0 20px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--primary) / 0.2);
   }
   
   .box-glow {
-    box-shadow: 0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.3);
+    box-shadow: 
+      0 0 15px hsl(var(--primary) / 0.5), 
+      0 0 30px hsl(var(--primary) / 0.3),
+      0 0 45px hsl(var(--primary) / 0.1);
+  }
+
+  .epic-border {
+    border-image: linear-gradient(45deg, 
+      hsl(var(--primary)), 
+      hsl(var(--destructive)), 
+      hsl(var(--primary))
+    ) 1;
   }
 }
 
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-epic-glow {
+    animation: epic-glow 4s ease-in-out infinite;
+  }
+
+  @keyframes epic-glow {
+    0%, 100% { 
+      text-shadow: 
+        0 0 5px hsl(var(--primary) / 0.8), 
+        0 0 10px hsl(var(--primary) / 0.6); 
+    }
+    50% { 
+      text-shadow: 
+        0 0 20px hsl(var(--primary)), 
+        0 0 30px hsl(var(--destructive) / 0.8),
+        0 0 40px hsl(var(--primary) / 0.6); 
+    }
+  }
+}
