@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Swords, Shield, Flame, Crown, Skull } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
 import ThreeScene from '@/components/ThreeScene';

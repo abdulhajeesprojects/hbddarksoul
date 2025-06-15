@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import React, { useState } from 'react';
 
 const RuneSection = () => {
   const [activeCovenant, setActiveCovenant] = useState<number | null>(null);

@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Flame, Shield, Skull } from 'lucide-react';
 
 const HeroSection = () => {
