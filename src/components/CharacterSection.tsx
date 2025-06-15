@@ -1,27 +1,28 @@
+
 import { Card, CardContent } from '@/components/ui/card';
 
 const CharacterSection = () => {
   const characters = [
     {
-      name: "KRATOS",
-      title: "God of War",
-      description: "The Ghost of Sparta blesses your journey with strength and wisdom.",
-      quote: "We must be better than we were.",
-      rune: "ᚲ"
+      name: "SOLAIRE OF ASTORA",
+      title: "Warrior of Sunlight",
+      description: "He offers you his sign of friendship for the trials ahead.",
+      quote: "Praise the Sun! \\[T]/",
+      symbol: "☀️"
     },
     {
-      name: "ATREUS",
-      title: "Son of Kratos",
-      description: "The young archer wishes you adventures filled with discovery.",
-      quote: "Can we really change who we are?",
-      rune: "ᚨ"
+      name: "SIEGMEYER OF CATARINA",
+      title: "Knight of Catarina",
+      description: "He wishes you a joyous birthday, and perhaps a celebratory nap.",
+      quote: "Hmm... Mmm... Still closed, still closed...",
+      symbol: "🛡️"
     },
     {
-      name: "MIMIR",
-      title: "The Smartest Man Alive",
-      description: "The wisest head in the Nine Realms shares his knowledge.",
-      quote: "Happy birthday, brother! May your stories be legendary!",
-      rune: "ᛗ"
+      name: "ARTORIAS",
+      title: "The Abysswalker",
+      description: "A legendary knight lends his unwavering resolve to your cause.",
+      quote: "Surely thine kind are more than pure dark.",
+      symbol: "🐺"
     }
   ];
 
@@ -29,20 +30,22 @@ const CharacterSection = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="bg-card/20 border border-primary/10 rounded-2xl p-8 md:p-12">
-          <h2 className="text-4xl md:text-6xl font-black text-center mb-4 text-glow">
-            PANTHEON BLESSINGS
-          </h2>
+          <div className="bg-card/50 rounded-xl p-2 inline-block mb-4">
+            <h2 className="text-4xl md:text-6xl font-black text-center text-glow">
+              GREETINGS FROM LORDRAN
+            </h2>
+          </div>
           <p className="text-center text-muted-foreground mb-12 text-lg">
-            The gods and heroes of Midgard send their birthday wishes
+            Hollows and heroes alike gather to honor your day
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {characters.map((character, index) => (
+            {characters.map((character) => (
               <Card key={character.name} className="relative group bg-card/50 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:box-glow">
                 <CardContent className="p-6">
-                  {/* Rune Symbol */}
+                  {/* Symbol */}
                   <div className="text-6xl text-primary text-center mb-4 animate-pulse-glow">
-                    {character.rune}
+                    {character.symbol}
                   </div>
                   
                   {/* Character Info */}

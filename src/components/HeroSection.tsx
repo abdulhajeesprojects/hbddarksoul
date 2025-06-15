@@ -1,4 +1,5 @@
-import { Gamepad2, Gift, Skull } from 'lucide-react';
+
+import { Flame, Shield, Skull } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -7,16 +8,10 @@ const HeroSection = () => {
       <div className="relative group mb-8">
         <img
           src="https://i.postimg.cc/Kz6hMXwj/HBDDS.jpg"
-          alt="Dark Soul - God of War"
+          alt="Dark Soul - The Warrior"
           className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-primary animate-float box-glow"
         />
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-destructive/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        
-        {/* Norse Runes around the image */}
-        <div className="absolute -top-4 -left-4 text-primary text-2xl animate-pulse-glow">ᚱ</div>
-        <div className="absolute -top-4 -right-4 text-primary text-2xl animate-pulse-glow">ᚢ</div>
-        <div className="absolute -bottom-4 -left-4 text-primary text-2xl animate-pulse-glow">ᚾ</div>
-        <div className="absolute -bottom-4 -right-4 text-primary text-2xl animate-pulse-glow">ᛖ</div>
       </div>
 
       {/* Epic Title */}
@@ -27,7 +22,7 @@ const HeroSection = () => {
           </span>
         </h1>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase text-primary animate-pulse-glow">
-          A HERO'S SAGA
+          AN ASHEN ONE'S SAGA
         </h2>
         <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
           <Skull className="h-8 w-8 text-destructive animate-bounce" />
@@ -37,20 +32,20 @@ const HeroSection = () => {
       {/* Epic Subtitle */}
       <div className="relative mb-8">
         <p className="max-w-2xl text-lg md:text-xl text-muted-foreground italic leading-relaxed">
-          "They call you Dark Soul. In the halls of Valhalla, your legend is spoken. Today marks another year of your epic journey through the Nine Realms of gaming glory."
+          "They call you Dark Soul. In the annals of Lordran, your legend is spoken. Today marks another year of your epic journey through forgotten kingdoms."
         </p>
       </div>
 
       {/* Gaming Elements */}
       <div className="flex items-center justify-center space-x-8 text-primary mb-8">
         <div className="flex flex-col items-center">
-          <Gamepad2 className="h-10 w-10 animate-pulse-glow mb-2" />
-          <span className="text-sm font-semibold">LEVEL UP</span>
+          <Flame className="h-10 w-10 animate-pulse-glow mb-2" />
+          <span className="text-sm font-semibold">KINDLE FLAME</span>
         </div>
         <div className="text-4xl font-black">⚔️</div>
         <div className="flex flex-col items-center">
-          <Gift className="h-10 w-10 animate-pulse-glow mb-2" />
-          <span className="text-sm font-semibold">EPIC LOOT</span>
+          <Shield className="h-10 w-10 animate-pulse-glow mb-2" />
+          <span className="text-sm font-semibold">CLAIM SOULS</span>
         </div>
       </div>
 
