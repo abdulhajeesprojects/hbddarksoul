@@ -6,7 +6,7 @@ const SpiderManSection = () => {
   return (
     <section 
       className="min-h-screen flex items-center justify-center relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1620207833984-754635c344d4?q=80&w=2070&auto=format&fit=crop')" }}
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1431576901776-e539bd916ba2?q=80&w=1974&auto=format&fit=crop')" }}
     >
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 text-center text-white p-4 animate-fade-in">
