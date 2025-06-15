@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Swords, Shield, Flame, Crown, Skull } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
@@ -10,11 +9,13 @@ import WeaponShowcase from '@/components/WeaponShowcase';
 import SpiderManSection from '@/components/SpiderManSection';
 import GodOfWarSection from '@/components/GodOfWarSection';
 import Gta5Section from '@/components/Gta5Section';
+import RoamingSpiders from '@/components/RoamingSpiders';
 
 const Index = () => {
   return (
     <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden font-orbitron">
       <ParticleBackground />
+      <RoamingSpiders />
       
       <main className="relative z-10">
         {/* Hero Section */}
