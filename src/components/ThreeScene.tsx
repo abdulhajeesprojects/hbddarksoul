@@ -1,6 +1,6 @@
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, Box, Cylinder } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Suspense, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -18,33 +18,34 @@ const RotatingAxe = () => {
   return (
     <group ref={axeRef}>
       {/* Axe Handle */}
-      <Cylinder args={[0.1, 0.1, 3]} position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+      <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.1, 0.1, 3]} />
         <meshStandardMaterial color="#8B4513" />
-      </Cylinder>
+      </mesh>
       
       {/* Axe Head */}
-      <Box args={[1.5, 0.8, 0.2]} position={[1.2, 0, 0]}>
+      <mesh position={[1.2, 0, 0]}>
+        <boxGeometry args={[1.5, 0.8, 0.2]} />
         <meshStandardMaterial
           color="#4A90E2"
           emissive="#00ffff"
           emissiveIntensity={0.3}
-          metalness={0.8}
-          roughness={0.2}
         />
-      </Box>
+      </mesh>
     </group>
   );
 };
 
 const RuneStone = ({ position }: { position: [number, number, number] }) => {
   return (
-    <Box args={[0.5, 1.5, 0.3]} position={position}>
+    <mesh position={position}>
+      <boxGeometry args={[0.5, 1.5, 0.3]} />
       <meshStandardMaterial
         color="#666666"
         emissive="#00ffff"
         emissiveIntensity={0.1}
       />
-    </Box>
+    </mesh>
   );
 };
 
@@ -87,7 +88,8 @@ const MagicOrb = () => {
   });
 
   return (
-    <Sphere ref={orbRef} args={[0.5, 32, 32]} position={[0, 2, 0]}>
+    <mesh ref={orbRef} position={[0, 2, 0]}>
+      <sphereGeometry args={[0.5, 32, 32]} />
       <meshStandardMaterial
         color="#ff0066"
         emissive="#ff0066"
@@ -95,7 +97,7 @@ const MagicOrb = () => {
         transparent
         opacity={0.8}
       />
-    </Sphere>
+    </mesh>
   );
 };
 
@@ -105,14 +107,13 @@ const ThreeScene = () => {
       <Canvas camera={{ position: [8, 5, 8], fov: 60 }}>
         <Suspense fallback={null}>
           {/* Lighting Setup */}
-          <ambientLight intensity={0.3} color="#003366" />
+          <ambientLight intensity={0.3} />
           <pointLight position={[5, 5, 5]} intensity={1.5} color="#00ffff" />
           <pointLight position={[-5, -5, -5]} intensity={1} color="#ff3366" />
           <directionalLight
             position={[10, 10, 5]}
             intensity={0.8}
             color="#ffffff"
-            castShadow
           />
           
           {/* Scene Elements */}
