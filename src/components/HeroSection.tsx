@@ -1,4 +1,3 @@
-
 import { Gamepad2, Gift, Skull } from 'lucide-react';
 
 const HeroSection = () => {
@@ -24,11 +23,11 @@ const HeroSection = () => {
       <div className="relative mb-8">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-widest text-glow mb-4">
           <span className="bg-gradient-to-r from-primary via-destructive to-primary bg-clip-text text-transparent">
-            RAGNARÖK
+            DARK SOUL
           </span>
         </h1>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase text-primary animate-pulse-glow">
-          BIRTHDAY SAGA
+          A HERO'S SAGA
         </h2>
         <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
           <Skull className="h-8 w-8 text-destructive animate-bounce" />
@@ -37,13 +36,8 @@ const HeroSection = () => {
 
       {/* Epic Subtitle */}
       <div className="relative mb-8">
-        <h3 className="text-4xl md:text-6xl font-bold text-center mb-4 text-glow">
-          CHAMPION
-          <span className="text-primary mx-4">DARK SOUL</span>
-          RISES
-        </h3>
         <p className="max-w-2xl text-lg md:text-xl text-muted-foreground italic leading-relaxed">
-          "In the halls of Valhalla, your legend is spoken. Today marks another year of your epic journey through the Nine Realms of gaming glory."
+          "They call you Dark Soul. In the halls of Valhalla, your legend is spoken. Today marks another year of your epic journey through the Nine Realms of gaming glory."
         </p>
       </div>
 
