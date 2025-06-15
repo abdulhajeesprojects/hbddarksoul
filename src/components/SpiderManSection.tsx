@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import SpiderWebAnimation from './SpiderWebAnimation';
 
 const SpiderManSection = () => {
   return (
@@ -9,6 +10,7 @@ const SpiderManSection = () => {
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1431576901776-e539bd916ba2?q=80&w=1974&auto=format&fit=crop')" }}
     >
       <div className="absolute inset-0 bg-black/70" />
+      <SpiderWebAnimation />
       <div className="relative z-10 text-center text-white p-4 animate-fade-in">
         <h2 className="text-6xl md:text-8xl font-black uppercase mb-4 font-orbitron">
           <span className="text-spidey-red">Spider-</span><span className="text-spidey-blue">Verse</span>
