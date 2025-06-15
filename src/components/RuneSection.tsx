@@ -14,55 +14,57 @@ const RuneSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-background to-background/50">
-      <div className="container mx-auto">
-        <h2 className="text-4xl md:text-6xl font-black text-center mb-4 text-glow">
-          RUNIC PROPHECY
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg">
-          The ancient runes reveal your destiny, Dark Soul
-        </p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
-          {runes.map((rune, index) => (
-            <div
-              key={index}
-              className={`relative group cursor-pointer transition-all duration-300 ${
-                activeRune === index ? 'scale-110' : 'hover:scale-105'
-              }`}
-              onClick={() => setActiveRune(activeRune === index ? null : index)}
-            >
-              <div className="bg-card/50 border border-primary/30 rounded-lg p-6 text-center hover:border-primary hover:box-glow transition-all duration-300">
-                <div className="text-5xl text-primary mb-2 animate-pulse-glow group-hover:animate-bounce">
-                  {rune.symbol}
+    <section className="py-16 bg-gradient-to-b from-background to-background/50">
+      <div className="container mx-auto px-4">
+        <div className="bg-card/20 border border-primary/10 rounded-2xl p-8 md:p-12">
+          <h2 className="text-4xl md:text-6xl font-black text-center mb-4 text-glow">
+            RUNIC PROPHECY
+          </h2>
+          <p className="text-center text-muted-foreground mb-12 text-lg">
+            The ancient runes reveal your destiny, Dark Soul
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+            {runes.map((rune, index) => (
+              <div
+                key={index}
+                className={`relative group cursor-pointer transition-all duration-300 ${
+                  activeRune === index ? 'scale-110' : 'hover:scale-105'
+                }`}
+                onClick={() => setActiveRune(activeRune === index ? null : index)}
+              >
+                <div className="bg-card/50 border border-primary/30 rounded-lg p-6 text-center hover:border-primary hover:box-glow transition-all duration-300">
+                  <div className="text-5xl text-primary mb-2 animate-pulse-glow group-hover:animate-bounce">
+                    {rune.symbol}
+                  </div>
+                  <p className="text-xs font-semibold text-muted-foreground">
+                    {rune.name}
+                  </p>
                 </div>
-                <p className="text-xs font-semibold text-muted-foreground">
-                  {rune.name}
+              </div>
+            ))}
+          </div>
+          
+          {/* Active Rune Description */}
+          {activeRune !== null && (
+            <div className="max-w-2xl mx-auto text-center animate-fade-in">
+              <div className="bg-card/70 border border-primary/50 rounded-lg p-8 box-glow">
+                <div className="text-6xl text-primary mb-4 animate-pulse-glow">
+                  {runes[activeRune].symbol}
+                </div>
+                <h3 className="text-2xl font-black mb-2 text-glow">
+                  {runes[activeRune].name}
+                </h3>
+                <p className="text-primary font-semibold mb-4">
+                  {runes[activeRune].meaning}
+                </p>
+                <p className="text-muted-foreground italic">
+                  {runes[activeRune].blessing}
                 </p>
               </div>
             </div>
-          ))}
+          )}
         </div>
-        
-        {/* Active Rune Description */}
-        {activeRune !== null && (
-          <div className="max-w-2xl mx-auto text-center animate-fade-in">
-            <div className="bg-card/70 border border-primary/50 rounded-lg p-8 box-glow">
-              <div className="text-6xl text-primary mb-4 animate-pulse-glow">
-                {runes[activeRune].symbol}
-              </div>
-              <h3 className="text-2xl font-black mb-2 text-glow">
-                {runes[activeRune].name}
-              </h3>
-              <p className="text-primary font-semibold mb-4">
-                {runes[activeRune].meaning}
-              </p>
-              <p className="text-muted-foreground italic">
-                {runes[activeRune].blessing}
-              </p>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

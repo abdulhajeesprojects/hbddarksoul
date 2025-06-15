@@ -34,10 +34,12 @@ const Index = () => {
         {/* 3D Scene */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-8 text-glow">
-              REALM OF LEGENDS
-            </h2>
-            <ThreeScene />
+            <div className="bg-card/20 border border-primary/10 rounded-2xl p-8 md:p-12">
+              <h2 className="text-4xl font-bold text-center mb-8 text-glow">
+                REALM OF LEGENDS
+              </h2>
+              <ThreeScene />
+            </div>
           </div>
         </section>
 
@@ -50,17 +52,19 @@ const Index = () => {
         {/* Final Epic Message */}
         <section className="py-16 text-center">
           <div className="container mx-auto px-4">
-            <div className="relative group">
-              <h3 className="text-4xl md:text-6xl font-black uppercase text-primary animate-pulse-glow mb-4">
-                WARRIOR'S ASCENSION
-              </h3>
-              <p className="text-xl text-muted-foreground italic mb-8">
-                "The gods themselves celebrate your legend, Dark Soul"
-              </p>
-              <div className="flex justify-center items-center space-x-6 text-primary">
-                <Crown className="h-12 w-12 animate-float" />
-                <Zap className="h-12 w-12 animate-pulse-glow" />
-                <Mountain className="h-12 w-12 animate-float" />
+            <div className="bg-card/20 border border-primary/10 rounded-2xl p-8 md:p-12">
+              <div className="relative group">
+                <h3 className="text-4xl md:text-6xl font-black uppercase text-primary animate-pulse-glow mb-4">
+                  WARRIOR'S ASCENSION
+                </h3>
+                <p className="text-xl text-muted-foreground italic mb-8">
+                  "The gods themselves celebrate your legend, Dark Soul"
+                </p>
+                <div className="flex justify-center items-center space-x-6 text-primary">
+                  <Crown className="h-12 w-12 animate-float" />
+                  <Zap className="h-12 w-12 animate-pulse-glow" />
+                  <Mountain className="h-12 w-12 animate-float" />
+                </div>
               </div>
             </div>
           </div>
