@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 
 const WeaponShowcase = () => {
@@ -38,14 +37,12 @@ const WeaponShowcase = () => {
         
         <div className="grid md:grid-cols-3 gap-8">
           {weapons.map((weapon, index) => (
-            <Card key={weapon.name} className="relative group bg-card/50 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:box-glow overflow-hidden">
+            <Card key={weapon.name} className="relative group bg-card/50 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:box-glow">
               <CardContent className="p-8 text-center">
-                {/* Weapon Emoji */}
                 <div className="text-8xl mb-6 animate-float">
                   {weapon.emoji}
                 </div>
                 
-                {/* Weapon Info */}
                 <h3 className="text-2xl font-black mb-4 text-glow">
                   {weapon.name}
                 </h3>
@@ -53,19 +50,16 @@ const WeaponShowcase = () => {
                   {weapon.description}
                 </p>
                 
-                {/* Power Badge */}
                 <div className={`inline-block px-4 py-2 rounded-full border-2 border-current ${weapon.color} font-bold text-sm animate-pulse-glow`}>
                   {weapon.power}
                 </div>
                 
-                {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-primary to-destructive group-hover:opacity-10 transition-opacity duration-500"></div>
               </CardContent>
             </Card>
           ))}
         </div>
         
-        {/* Epic Message */}
         <div className="text-center mt-12">
           <p className="text-xl text-primary font-semibold animate-pulse-glow">
             "Choose your weapon, Dark Soul. The realms await your conquest!"
