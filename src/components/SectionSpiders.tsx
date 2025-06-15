@@ -1,30 +1,32 @@
-
 import React, { useState, useEffect } from 'react';
 
 const SPIDER_COUNT = 3;
 const SECTION_PADDING = 5; // percentage
 
 const Spider = () => {
-  const [position, setPosition] = useState({ 
+  const [spiderState, setSpiderState] = useState({ 
     top: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING, 
     left: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
+    rotation: 0
   });
-  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
     const moveSpider = () => {
-      setPosition(currentPos => {
+      setSpiderState(currentState => {
         const nextPos = {
           top: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
           left: Math.random() * (100 - 2 * SECTION_PADDING) + SECTION_PADDING,
         };
 
-        const deltaY = nextPos.top - currentPos.top;
-        const deltaX = nextPos.left - currentPos.left;
+        const deltaY = nextPos.top - currentState.top;
+        const deltaX = nextPos.left - currentState.left;
         const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
         
-        setRotation(angle + 90);
-        return nextPos;
+        return {
+          top: nextPos.top,
+          left: nextPos.left,
+          rotation: angle + 90
+        };
       });
     };
 
@@ -42,9 +44,9 @@ const Spider = () => {
     <div
       className="absolute z-5 pointer-events-none"
       style={{
-        top: `${position.top}%`,
-        left: `${position.left}%`,
-        transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+        top: `${spiderState.top}%`,
+        left: `${spiderState.left}%`,
+        transform: `translate(-50%, -50%) rotate(${spiderState.rotation}deg)`,
         transition: 'top 5s linear, left 5s linear',
       }}
     >

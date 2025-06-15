@@ -3,27 +3,30 @@ import React, { useState, useEffect } from 'react';
 const SPIDER_COUNT = 2;
 
 const Spider = () => {
-  // Start spiders off-screen to crawl in
-  const [position, setPosition] = useState({ 
+  // Combine position and rotation into a single state object
+  const [spiderState, setSpiderState] = useState({ 
     top: Math.random() * 100, 
-    left: Math.random() > 0.5 ? -10 : 110 
+    left: Math.random() > 0.5 ? -10 : 110,
+    rotation: 0
   });
-  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
     const moveSpider = () => {
-      setPosition(currentPos => {
+      setSpiderState(currentState => {
         const nextPos = {
           top: Math.random() * 100,
           left: Math.random() * 100,
         };
 
-        const deltaY = nextPos.top - currentPos.top;
-        const deltaX = nextPos.left - currentPos.left;
+        const deltaY = nextPos.top - currentState.top;
+        const deltaX = nextPos.left - currentState.left;
         const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
         
-        setRotation(angle + 90); // Adjust for spider's upward orientation
-        return nextPos;
+        return {
+          top: nextPos.top,
+          left: nextPos.left,
+          rotation: angle + 90, // Adjust for spider's upward orientation
+        };
       });
     };
 
@@ -42,9 +45,9 @@ const Spider = () => {
     <div
       className="fixed z-50 pointer-events-none"
       style={{
-        top: `${position.top}vh`,
-        left: `${position.left}vw`,
-        transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+        top: `${spiderState.top}vh`,
+        left: `${spiderState.left}vw`,
+        transform: `translate(-50%, -50%) rotate(${spiderState.rotation}deg)`,
         transition: 'top 8s linear, left 8s linear',
       }}
     >
