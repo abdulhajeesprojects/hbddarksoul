@@ -56,6 +56,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        'spidey-red': '#e62429',
+        'spidey-blue': '#007aff',
+        'gow-blue': '#2e6b9c',
+        'gow-ice': '#cceeff',
+        'gta-pink': '#ff4081',
+        'gta-green': '#199a0e',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -117,4 +123,3 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-

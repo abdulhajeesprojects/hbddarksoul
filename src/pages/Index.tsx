@@ -6,10 +6,13 @@ import HeroSection from '@/components/HeroSection';
 import CharacterSection from '@/components/CharacterSection';
 import RuneSection from '@/components/RuneSection';
 import WeaponShowcase from '@/components/WeaponShowcase';
+import SpiderManSection from '@/components/SpiderManSection';
+import GodOfWarSection from '@/components/GodOfWarSection';
+import Gta5Section from '@/components/Gta5Section';
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen w-full bg-background text-foreground overflow-hidden font-orbitron">
+    <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden font-orbitron">
       <ParticleBackground />
       
       <main className="relative z-10">
@@ -70,6 +73,11 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Themed Game Sections */}
+        <SpiderManSection />
+        <GodOfWarSection />
+        <Gta5Section />
       </main>
 
       {/* Footer */}
