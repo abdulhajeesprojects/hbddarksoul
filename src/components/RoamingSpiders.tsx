@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const SPIDER_COUNT = 2;
@@ -13,17 +12,19 @@ const Spider = () => {
 
   useEffect(() => {
     const moveSpider = () => {
-      const nextPos = {
-        top: Math.random() * 100,
-        left: Math.random() * 100,
-      };
+      setPosition(currentPos => {
+        const nextPos = {
+          top: Math.random() * 100,
+          left: Math.random() * 100,
+        };
 
-      const deltaY = nextPos.top - position.top;
-      const deltaX = nextPos.left - position.left;
-      const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-      
-      setRotation(angle + 90); // Adjust for spider's upward orientation
-      setPosition(nextPos);
+        const deltaY = nextPos.top - currentPos.top;
+        const deltaX = nextPos.left - currentPos.left;
+        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        
+        setRotation(angle + 90); // Adjust for spider's upward orientation
+        return nextPos;
+      });
     };
 
     const interval = setInterval(moveSpider, Math.random() * 4000 + 5000); // Move every 5-9 seconds
@@ -35,7 +36,7 @@ const Spider = () => {
       clearInterval(interval);
       clearTimeout(initialMoveTimeout);
     };
-  }, [position]);
+  }, []);
 
   return (
     <div
